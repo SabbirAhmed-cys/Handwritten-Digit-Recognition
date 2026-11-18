@@ -1,93 +1,90 @@
+# DigitLab — Handwritten Digit Recognition Studio
 
-# Handwritten Digit Recognition Using AI
+A redesigned Streamlit application for your Class XII Artificial Intelligence project. It uses your trained TensorFlow/Keras CNN to recognise handwritten digits from 0 to 9.
 
-## Project Overview
-This project is an AI-based Handwritten Digit Recognition System developed using Python, TensorFlow, CNN and Streamlit.
+## Features
 
-It recognises handwritten digits from 0 to 9 using image processing and a Convolutional Neural Network.
+- Light, responsive dashboard with a clean blue visual theme
+- Upload PNG, JPG, JPEG and WEBP images
+- Draw a digit directly on an interactive canvas
+- CNN prediction with confidence score
+- Probability chart for all ten digit classes
+- Original/processed image workflow
+- Session-based prediction history
+- Analytics dashboard with digit frequency and confidence trends
+- CSV export for history and analytics
+- Custom cursor effect on desktop devices
 
-## Objectives
-- Recognise handwritten digits from 0 to 9.
-- Apply image preprocessing techniques.
-- Train a CNN model using the MNIST dataset.
-- Display digit predictions and confidence scores.
-- Develop a simple interactive web application.
+## Project structure
 
-## Technologies Used
-- Python
-- TensorFlow
-- Keras
-- NumPy
-- Pillow
-- Streamlit
-- MNIST Dataset
-
-## Model Information
-- Algorithm: Convolutional Neural Network (CNN)
-- Input Image Size: 128 × 128 pixels
-- Colour Mode: Grayscale
-- Output Classes: 10 (Digits 0–9)
-- Dataset: MNIST
-
-## Project Structure
-
+```text
 Handwritten_Digit_Recognition/
-│
 ├── app.py
 ├── train.py
 ├── requirements.txt
 ├── README.md
+├── .gitignore
+├── .streamlit/
+│   └── config.toml
 └── digit_model.keras
+```
 
-## Installation
+Keep your existing `digit_model.keras` in the project root beside `app.py`.
 
-Install the required libraries:
+## Setup (Windows)
 
+1. Install Python 3.10 or 3.11 (recommended for TensorFlow compatibility).
+2. Open Command Prompt or PowerShell in this folder.
+3. Create and activate a virtual environment:
+
+```bash
+python -m venv .venv
+.venv\Scripts\activate
+```
+
+4. Install dependencies:
+
+```bash
+python -m pip install --upgrade pip
 pip install -r requirements.txt
+```
 
-## Training the Model
+5. Run the website:
 
-Run:
-
-python train.py
-
-The trained model will be saved as:
-
-digit_model.keras
-
-## Run the Application
-
-Run:
-
+```bash
 python -m streamlit run app.py
+```
 
-Open the local URL displayed in your terminal.
+Streamlit will show a local URL, usually `http://localhost:8501`.
 
-## How It Works
+## Model
 
-1. User uploads a handwritten digit image.
-2. The image is converted into grayscale.
-3. Image preprocessing removes noise and centres the digit.
-4. The image is resized to 128 × 128 pixels.
-5. The CNN model predicts the digit.
-6. The application displays the predicted digit and confidence.
+- Architecture: Convolutional Neural Network (CNN)
+- Input: 128 × 128 × 1 grayscale image
+- Output: 10 classes (0–9)
+- Dataset: MNIST
+- Framework: TensorFlow / Keras
 
-## Expected Output
+The upgraded app keeps the existing `digit_model.keras`. You do not need to retrain it to use the new interface.
 
-The application predicts a digit between 0 and 9 and displays its prediction confidence.
+## Retrain (optional)
 
-## Conclusion
+If you want to train a fresh model using the included training script:
 
-This project demonstrates how Artificial Intelligence and Deep Learning can be used to recognise handwritten digits through image processing and Convolutional Neural Networks.
+```bash
+python train.py
+```
 
-## Developed By
+The script saves the trained model as `digit_model.keras`.
 
-Student Name: [Sabbir Ahmed]
+## Important notes
 
-Class: XII
+- Draw one digit at a time for the best results.
+- Prediction history is kept in Streamlit session state and is not a permanent database.
+- Confidence is the model's output score, not a guarantee of correctness.
+- The custom cursor is a decorative desktop effect; touch devices use their normal interaction behavior.
 
-Subject: Artificial Intelligence
+## Developed by
 
-Academic Session: 2026–27
-
-School: [Kendriya Vidyalaya]
+**Sabbir Ahmed**  
+Class XII · Artificial Intelligence · Academic Session 2026–27
